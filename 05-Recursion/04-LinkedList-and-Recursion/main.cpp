@@ -4,6 +4,7 @@
 #include "Solution2.h"
 #include "Solution3.h"
 #include "Solution4.h"
+#include "Solution5.h"
 #include "Sum.h"
 
 int main() {
@@ -24,6 +25,10 @@ int main() {
     head4->print();
     ListNode<int> *res4 = Solution4<int>().removeElements(head,6);
     res4->print();
+    ListNode<int> *head5 = new ListNode<int>(nums,6);
+    head5->print();
+    ListNode<int> *res5 = Solution5<int>().removeElements(head,6);
+    res5->print();
     int num[9] = {1,2,3,4,5,6,7,8,9};
     std::cout << "sum: " << Sum<int>().sum(num,9) << std::endl;
     float num1[9] = {1.2,2.3,3.4,4.5,5.6,6.7,7.8,8.9,9.1};
