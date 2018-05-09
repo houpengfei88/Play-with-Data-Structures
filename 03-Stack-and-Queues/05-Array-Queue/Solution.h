@@ -37,7 +37,7 @@ public:
                 queue->enqueue(std::make_pair(node->left, level + 1));
             }
             if (node->right) {
-                queue->enqueue(std::make_pair(node->right,level +1);
+                queue->enqueue(std::make_pair(node->right,level +1));
             }
         }
         return res;
