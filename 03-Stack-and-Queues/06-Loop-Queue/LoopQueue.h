@@ -22,7 +22,7 @@ public:
     }
 
     LoopQueue(int capacity) {
-        data = new T[capacity + 1];
+        data = new T[capacity];
         front = 0;
         tail = 0;
         this->capacity = capacity;
