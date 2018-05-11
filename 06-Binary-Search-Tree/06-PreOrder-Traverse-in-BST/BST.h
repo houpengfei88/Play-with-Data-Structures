@@ -34,6 +34,22 @@ private:
             return contains(node->right, e);
         }
     }
+
+    void preOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+	std::cout << node->e << std::endl;
+        preOrder(node->left);
+        preOrder(node->right);
+    }
+
+    void generateDepthString(int depth) {
+        for (int i = 0; i < depth; ++i) {
+            std::cout << "--";
+        }
+    }
+
 public:
     BST() {
         root = nullptr;
@@ -72,5 +88,24 @@ public:
 
     bool contains(T e) {
         return contains(root, e);
+    }
+    void preOrder() {
+        preOrder(root);
+    }
+
+    void generateBSTString(Node<T> *node, int depth) {
+        if (node == nullptr) {
+            generateDepthString(depth);
+            std::cout << "NULL" << std::endl;
+            return;
+        }
+        generateDepthString(depth);
+        std::cout << node->e << std::endl;
+        generateBSTString(node->left, depth + 1);
+        generateBSTString(node->right, depth + 1);
+    }
+
+    void print() {
+        generateBSTString(root, 0);
     }
 };

@@ -70,17 +70,17 @@ private:
         void add(Node<T> *node, T e) {
             if (node->e == e) {
                 return;
-            } else if (node->e < e && node->left == nullptr) {
+            } else if (node->e > e && node->left == nullptr) {
                 node->left = new Node<T>(e);
                 size++;
                 return;
-            } else if (node->e > e && node->right == nullptr) {
+            } else if (node->e < e && node->right == nullptr) {
                 node->right = new Node<T>(e);
                 size++;
                 return;
             }
 
-            if (node->e < e) {
+            if (node->e > e) {
                 add(node->left, e);
             } else {
                 add(node->right, e);

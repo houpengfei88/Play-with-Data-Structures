@@ -48,9 +48,9 @@ public:
             size++;
 	    return new Node<T>(e);
         } 
-	if (node->e < e) {
+	if (node->e > e) {
             node->left = add(node->left, e);
-        } else if (node->e > e) {
+        } else if (node->e < e) {
             node->right = add(node->right, e);
         }
 	return node;
