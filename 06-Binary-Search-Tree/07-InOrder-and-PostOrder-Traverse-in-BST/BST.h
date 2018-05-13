@@ -41,9 +41,27 @@ private:
         if (node == nullptr) {
             return;
         }
-	std::cout << node->e << std::endl;
+	std::cout << node->e << " ";
         preOrder(node->left);
         preOrder(node->right);
+    }
+
+    void inOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+	inOrder(node->left);
+        std::cout << node->e << " ";
+        inOrder(node->right);
+    }
+
+    void postOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+	postOrder(node->left);
+        postOrder(node->right);
+        std::cout << node->e << " ";
     }
 
     void generateDepthString(int depth) {
@@ -93,6 +111,17 @@ public:
     }
     void preOrder() {
         preOrder(root);
+        std::cout << std::endl;
+    }
+
+    void inOrder() {
+        inOrder(root);
+        std::cout << std::endl;
+    }
+
+    void postOrder() {
+        postOrder(root);
+        std::cout << std::endl;
     }
 
     void generateBSTString(Node<T> *node, int depth) {
