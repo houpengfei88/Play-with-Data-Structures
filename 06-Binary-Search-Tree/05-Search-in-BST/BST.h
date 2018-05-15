@@ -28,7 +28,7 @@ private:
 
         if (node->e == e) {
             return true;
-        } else if (node->e < e) {
+        } else if (node->e > e) {
             return contains(node->left, e);
         } else {
             return contains(node->right, e);
