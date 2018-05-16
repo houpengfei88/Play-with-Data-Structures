@@ -98,8 +98,8 @@ private:
             newData[i] = data[(i + front) % capacity];
         }
         data = newData;
-        front = 0;
         tail = getSize();
+        front = 0;
         capacity = newCapacity;
     }
 

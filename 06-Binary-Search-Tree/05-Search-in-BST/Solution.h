@@ -19,10 +19,10 @@ public:
             for (char c : word) {
                 code += morse[c - 'a'];
             }
-	    std::cout << '"' << code << '"' << std::endl;
-	    if (!bst.contains(code)) {
-                bst.add(code);
- 	    }
+			std::cout << '"' << code << '"' << std::endl;
+			if (!bst.contains(code)) {
+		    	bst.add(code);
+	 	    }
         }
         return bst.getSize();
     }
@@ -46,7 +46,7 @@ private:
     private:
         Node<T> *root;
         int size;
-	bool contains(Node<T> *node, T e) {
+		bool contains(Node<T> *node, T e) {
             if (node == nullptr) {
                 return false;
             }
@@ -86,17 +86,17 @@ private:
         Node<T> *add(Node<T> *node, T e) {
             if (node == nullptr) {
                 size++;
-	        return new Node<T>(e);
+	        	return new Node<T>(e);
             } 
-	    if (node->e > e) {
+	    	if (node->e > e) {
                 node->left = add(node->left, e);
             } else if (node->e < e) {
                 node->right = add(node->right, e);
             }
-	    return node;
+	    	return node;
         }
 
-	bool contains(T e) {
+		bool contains(T e) {
             return contains(root, e);
     	}
     };

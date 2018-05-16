@@ -50,7 +50,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	inOrder(node->left);
+		inOrder(node->left);
         std::cout << node->e << " ";
         inOrder(node->right);
     }
@@ -59,7 +59,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	postOrder(node->left);
+		postOrder(node->left);
         postOrder(node->right);
         std::cout << node->e << " ";
     }
@@ -98,12 +98,12 @@ public:
             size++;
 	    return new Node<T>(e);
         } 
-	if (node->e > e) {
+		if (node->e > e) {
             node->left = add(node->left, e);
         } else if (node->e < e) {
             node->right = add(node->right, e);
         }
-	return node;
+		return node;
     }
 
     bool contains(T e) {

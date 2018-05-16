@@ -60,14 +60,14 @@ public:
     Node<T> *add(Node<T> *node, T e) {
         if (node == nullptr) {
             size++;
-	    return new Node<T>(e);
+	    	return new Node<T>(e);
         } 
-	if (node->e > e) {
+		if (node->e > e) {
             node->left = add(node->left, e);
         } else if (node->e < e) {
             node->right = add(node->right, e);
         }
-	return node;
+		return node;
     }
 
     bool contains(T e) {

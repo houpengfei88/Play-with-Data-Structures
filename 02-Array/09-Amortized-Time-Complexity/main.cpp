@@ -21,7 +21,7 @@ int main() {
     array->print();
     for(int i = 0; i < 4; ++i) {
         array->removeFirst();
-	array->print();
+		array->print();
     }
     return 0;
 }

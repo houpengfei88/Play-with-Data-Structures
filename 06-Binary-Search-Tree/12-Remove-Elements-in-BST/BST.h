@@ -43,7 +43,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	std::cout << node->e << " ";
+		std::cout << node->e << " ";
         preOrder(node->left);
         preOrder(node->right);
     }
@@ -52,7 +52,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	inOrder(node->left);
+		inOrder(node->left);
         std::cout << node->e << " ";
         inOrder(node->right);
     }
@@ -61,7 +61,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	postOrder(node->left);
+		postOrder(node->left);
         postOrder(node->right);
         std::cout << node->e << " ";
     }
@@ -179,14 +179,14 @@ public:
     Node<T> *add(Node<T> *node, T e) {
         if (node == nullptr) {
             size++;
-	    return new Node<T>(e);
+	    	return new Node<T>(e);
         } 
-	if (node->e > e) {
+		if (node->e > e) {
             node->left = add(node->left, e);
         } else if (node->e < e) {
             node->right = add(node->right, e);
         }
-	return node;
+		return node;
     }
 
     bool contains(T e) {
@@ -253,7 +253,7 @@ public:
             }
             if (!stack.empty()) {
                 cur = stack.top();
-                if (cur->right == temp || cur->right == nullptr){
+                if (cur->right == temp || cur->right == nullptr) {
                     std::cout << cur->e << " ";
                     stack.pop();
                     temp = cur;
@@ -313,7 +313,6 @@ public:
     void remove(T e) {
         root = remove(root, e);
     }
-
 
     void generateBSTString(Node<T> *node, int depth) {
         if (node == nullptr) {

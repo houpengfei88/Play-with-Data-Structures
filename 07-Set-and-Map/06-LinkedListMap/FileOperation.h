@@ -29,7 +29,6 @@ namespace FileOps {
     }
 
     string lowerS(const string &s) {
-
         string ret = "";
         for (int i = 0; i < s.length(); i++) {
             assert(isCharacter(s[i]));
@@ -39,7 +38,6 @@ namespace FileOps {
     }
 
     bool readFile(const string &filename, vector<string> &words) {
-
         string line;
         string contents = "";
         ifstream file(filename);

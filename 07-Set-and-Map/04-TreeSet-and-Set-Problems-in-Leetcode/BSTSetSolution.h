@@ -115,7 +115,6 @@ private:
                 size--;
                 return rightNode;
             }
-
             node->left = removeMin(node->left);
             return node;
         }
@@ -127,7 +126,6 @@ private:
                 size--;
                 return leftNode;
             }
-
             node->right = removeMax(node->right);
             return node;
         }
@@ -338,7 +336,6 @@ private:
         void remove(T e) {
             root = remove(root, e);
         }
-
 
         void generateBSTString(Node<T> *node, int depth) {
             if (node == nullptr) {

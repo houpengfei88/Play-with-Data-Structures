@@ -9,9 +9,6 @@
 #include "Stack.h"
 
 template<class T>
-class ArrayStack;
-
-template<class T>
 class ArrayStack : public Stack<T> {
 public:
     ArrayStack(int capacity) {

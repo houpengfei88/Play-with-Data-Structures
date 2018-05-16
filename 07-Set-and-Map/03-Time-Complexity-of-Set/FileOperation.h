@@ -15,21 +15,18 @@ using namespace std;
 
 
 namespace FileOps {
-
     bool isCharacter(char c) {
-
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
     }
-
+    
     int firstCharacterIndex(const string &s, int start) {
         for (int i = start; i < s.length(); i++)
             if (isCharacter(s[i]))
                 return i;
         return s.length();
     }
-
+    
     string lowerS(const string &s) {
-
         string ret = "";
         for (int i = 0; i < s.length(); i++) {
             assert(isCharacter(s[i]));
@@ -39,7 +36,6 @@ namespace FileOps {
     }
 
     bool readFile(const string &filename, vector<string> &words) {
-
         string line;
         string contents = "";
         ifstream file(filename);

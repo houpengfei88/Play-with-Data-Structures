@@ -24,11 +24,11 @@ public:
     }
 
     T pop() {
-        linkedlist->removeFirst();
+        return linkedlist->removeFirst();
     }
 
     T peek() {
-        linkedlist->getFirst();
+        return linkedlist->getFirst();
     }
 
     bool isEmpty() {

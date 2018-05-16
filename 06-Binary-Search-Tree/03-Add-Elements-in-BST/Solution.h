@@ -19,7 +19,7 @@ public:
             for (char c : word) {
                 code += morse[c - 'a'];
             }
-	    std::cout << '"' << code << '"' << std::endl;
+	    	std::cout << '"' << code << '"' << std::endl;
             bst.add(code);
         }
         return bst.getSize();

@@ -4,6 +4,9 @@
 
 #include <iostream>
 
+#ifndef DATASTRUCTURE_LINKEDLIST_H
+#define DATASTRUCTURE_LINKEDLIST_H
+
 template<class T>
 class Node {
 public:
@@ -190,3 +193,4 @@ public:
         std::cout << "]";
     }
 };
+#endif //DATASTRUCTURE_LINKEDLIST_H

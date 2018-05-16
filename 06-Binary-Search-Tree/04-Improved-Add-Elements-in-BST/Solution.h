@@ -19,7 +19,7 @@ public:
             for (char c : word) {
                 code += morse[c - 'a'];
             }
-	    std::cout << '"' << code << '"' << std::endl;
+	    	std::cout << '"' << code << '"' << std::endl;
             bst.add(code);
         }
         return bst.getSize();
@@ -70,14 +70,14 @@ private:
         Node<T> *add(Node<T> *node, T e) {
             if (node == nullptr) {
                 size++;
-	        return new Node<T>(e);
+	        	return new Node<T>(e);
             } 
-	    if (node->e > e) {
+	    	if (node->e > e) {
                 node->left = add(node->left, e);
             } else if (node->e < e) {
                 node->right = add(node->right, e);
             }
-	    return node;
+	    	return node;
         }
     };
 };

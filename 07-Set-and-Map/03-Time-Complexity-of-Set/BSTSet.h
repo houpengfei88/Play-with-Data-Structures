@@ -11,10 +11,10 @@
 template<class T>
 class BSTSet : public Set<T> {
 private:
-    BSTNameSpace::BST<T> *bst;
+    BSTSETSPACE::BST<T> *bst;
 public:
     BSTSet(){
-        bst = new BSTNameSpace::BST<T>();
+        bst = new BSTSETSPACE::BST<T>();
     }
 
     int getSize(){

@@ -43,7 +43,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	std::cout << node->e << " ";
+		std::cout << node->e << " ";
         preOrder(node->left);
         preOrder(node->right);
     }
@@ -52,7 +52,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	inOrder(node->left);
+		inOrder(node->left);
         std::cout << node->e << " ";
         inOrder(node->right);
     }
@@ -61,7 +61,7 @@ private:
         if (node == nullptr) {
             return;
         }
-	postOrder(node->left);
+		postOrder(node->left);
         postOrder(node->right);
         std::cout << node->e << " ";
     }
@@ -91,7 +91,6 @@ private:
             size--;
             return rightNode;
         }
-
         node->left = removeMin(node->left);
         return node;
     }
@@ -103,7 +102,6 @@ private:
             size--;
             return leftNode;
         }
-
         node->right = removeMax(node->right);
         return node;
     }
@@ -137,14 +135,14 @@ public:
     Node<T> *add(Node<T> *node, T e) {
         if (node == nullptr) {
             size++;
-	    return new Node<T>(e);
+	    	return new Node<T>(e);
         } 
-	if (node->e > e) {
+		if (node->e > e) {
             node->left = add(node->left, e);
         } else if (node->e < e) {
             node->right = add(node->right, e);
         }
-	return node;
+		return node;
     }
 
     bool contains(T e) {
