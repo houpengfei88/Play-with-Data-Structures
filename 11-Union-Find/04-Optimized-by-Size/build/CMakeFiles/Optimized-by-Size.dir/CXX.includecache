@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UF.h
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind1.h
+UF.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UF.h
+cassert
+-
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind2.h
+UF.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UF.h
+cassert
+-
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind3.h
+UF.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UF.h
+cassert
+-
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/main.cpp
+iostream
+-
+UnionFind1.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind1.h
+UnionFind2.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind2.h
+UnionFind3.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/UnionFind3.h
+

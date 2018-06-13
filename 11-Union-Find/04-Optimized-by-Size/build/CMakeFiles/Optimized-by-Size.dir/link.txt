@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/Optimized-by-Size.dir/main.cpp.o  -o Optimized-by-Size 
