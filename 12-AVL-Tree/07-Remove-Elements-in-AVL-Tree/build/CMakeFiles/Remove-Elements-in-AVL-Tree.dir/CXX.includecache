@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/AVLTree.h
+algorithm
+-
+iostream
+-
+vector
+-
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/BST.h
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/FileOperation.h
+string
+-
+iostream
+-
+fstream
+-
+vector
+-
+cassert
+-
+
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/main.cpp
+iostream
+-
+FileOperation.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/FileOperation.h
+AVLTree.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/AVLTree.h
+BST.h
+/home/hpf/workspace/C++/Play-with-Data-Structures/12-AVL-Tree/07-Remove-Elements-in-AVL-Tree/BST.h
+ctime
+-
+
