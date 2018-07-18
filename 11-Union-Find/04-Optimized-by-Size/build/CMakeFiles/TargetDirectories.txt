@@ -1,3 +1,0 @@
-/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/build/CMakeFiles/rebuild_cache.dir
-/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/build/CMakeFiles/Optimized-by-Size.dir
-/home/hpf/workspace/C++/Play-with-Data-Structures/11-Union-Find/04-Optimized-by-Size/build/CMakeFiles/edit_cache.dir

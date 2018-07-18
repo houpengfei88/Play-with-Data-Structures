@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/Remove-Elements-in-AVL-Tree.dir/main.cpp.o  -o Remove-Elements-in-AVL-Tree 
