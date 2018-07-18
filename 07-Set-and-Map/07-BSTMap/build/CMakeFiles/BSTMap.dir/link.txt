@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/BSTMap.dir/main.cpp.o  -o BSTMap 
