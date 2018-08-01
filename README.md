@@ -4,10 +4,10 @@
 
 #### 使用环境
 
-* Ubuntu18.04 LTS
+* Ubuntu18.04.01
 * g++ 7.3.0
 * CMake 3.10.2
-* Vim 8.0.1453
+* CLion
 * C++11
 
 #### 说明
@@ -15,7 +15,7 @@
 * 目录下假如是LeetCode的题目,则直接拷贝代码到LeetCode相应的题目下,直接可以运行,代码都经过验证
 * 目录下假如没有CMakeLists.txt 则该目录下代码无需编译
 * 仿照波波老师的目录而做一一对应
-* 有任何问题可以加QQ联系我
+* 有任何问题可以加QQ联系我 如果你买了全部的波波老师的课，可以加我QQ。拉你进入波波粉丝群！
 
 #### 个人联系方式
 
@@ -40,7 +40,7 @@
 | 2-7 动态数组 | [C++](02-Arrays/07-Dynamic-Array/) |
 | 2-8 简单的复杂度分析 | [无代码] |
 | 2-9 均摊复杂度和防止复杂度的震荡 | [C++](02-Arrays/09-Amortized-Time-Complexity/) |
-| **第三章 栈和队列** | [章节Java源码](03-Stacks-and-Queues/) |
+| **第三章 栈和队列** | [章节C++源码](03-Stacks-and-Queues/) |
 | 3-1 栈和栈的应用：撤销操作和系统栈 | [无代码] |
 | 3-2 栈的基本实现 | [C++](03-Stacks-and-Queues/02-Array-Stack/) |
 | 3-3 栈的另一个应用：括号匹配 | [C++](03-Stacks-and-Queues/03-A-Stack-Problem-in-Leetcode/) |
@@ -50,7 +50,7 @@
 | 3-7 循环队列的实现 | [C++](03-Stacks-and-Queues/07-Implementation-of-Loop-Queue/) |
 | 3-8 数组队列和循环队列的比较 | [C++](03-Stacks-and-Queues/08-Queues-Comparison/) |
 | 补充代码1: 没有size成员变量的循环队列 | [整理中，敬请期待] |
-| **第四章 最基础的动态数据结构：链表** | [章节Java源码](04-Linked-List/) |
+| **第四章 最基础的动态数据结构：链表** | [章节C++源码](04-Linked-List/) |
 | 4-1 什么是链表 | [C++](04-Linked-List/01-Linked-List-Basics/) | 
 | 4-2 在链表中添加元素 | [C++](04-Linked-List/02-Add-Elements-in-LinkedList/) | 
 | 4-3 使用链表的虚拟头结点 | [C++](04-Linked-List/03-DummyHead-in-LinkedList/) | 
@@ -58,13 +58,13 @@
 | 4-5 从链表中删除元素 | [C++](04-Linked-List/05-Remove-Element-in-LinkedList/) | 
 | 4-6 使用链表实现栈 | [C++](04-Linked-List/06-Implement-Stack-in-LinkedList/) | 
 | 4-7 带有尾指针的链表：使用链表实现队列 | [C++](04-Linked-List/07-Implement-Queue-in-LinkedList/) | 
-| **第五章 透过链表看递归** | [章节Java源码](05-Recursion/) |
+| **第五章 透过链表看递归** | [章节C++源码](05-Recursion/) |
 | 5-1 Leetcode中和链表相关的问题 | [C++](05-Recursion/01-Linked-List-Problems-in-Leetcode/) |
 | 5-2 测试自己的Leetcode链表代码 | [C++](05-Recursion/02-Test-Your-LinkedList-Solution/) | 
 | 5-3 递归基础与递归的宏观语意 | [C++](05-Recursion/03-Recursion-Basics/) | 
 | 5-4 链表与递归 | [C++](05-Recursion/04-LinkedList-and-Recursion/) | 
 | 5-5 递归运行的机制：递归的微观解读 | [无代码] | 
-| 5-6 递归算法的调试 | [Java](05-Recursion/06-Debug-Recursive-Solution/) | 
+| 5-6 递归算法的调试 | [C++](05-Recursion/06-Debug-Recursive-Solution/) | 
 | 5-7 更多和链表相关的问题 | [无代码] |
 | 补充代码1: 单链表的递归实现 | [C++](05-Recursion/Optional-01-Recursive-LinkedList/) |
 | 补充代码2: 斯坦福大学单链表的18个问题 | [PDF](05-Recursion/Optional-02-Stanford-LinkedList-Problems/)<br/>[代码整理中，敬请期待] |
@@ -87,7 +87,7 @@
 | 6-13 更多二分搜索树相关话题 | [无代码] |
 | 补充代码1: 斯坦福大学Binary Tree相关问题 | [PDF](06-Binary-Search-Tree/Optional-01-Standford-Binary-Tree/)<br/>[代码整理中，敬请期待] |
 | 补充代码2: 斯坦福大学Tree List相关问题 | [PDF](06-Binary-Search-Tree/Optional-02-Standford-TreeList/)<br/>[代码整理中，敬请期待] |
-| 补充代码3: 二叉树前中后序非递归遍历的经典实现 | [Java](06-Binary-Search-Tree/Optional-03-Binary-Tree-Classic-Nonrecursive-Traversal/) |
+| 补充代码3: 二叉树前中后序非递归遍历的经典实现 | [C++](06-Binary-Search-Tree/Optional-03-Binary-Tree-Classic-Nonrecursive-Traversal/) |
 | 补充代码4: 模拟系统栈前中后序遍历的非递归实现 | [玩转算法面试，第六章2，3小节](https://coding.imooc.com/lesson/82.html#mid=2675) |
 | 补充代码5: 二叉树Morris遍历前中后序实现 | [C++](06-Binary-Search-Tree/Optional-05-Binary-Tree-Morris-Traversal/) |
 | 补充代码6: 二分搜索树其他方法的非递归实现 | [整理中，敬请期待] |
@@ -98,8 +98,8 @@
 | 补充代码11: 节点内维护depth的二分搜索树 | [整理中，敬请期待] |
 | 补充代码12: 节点内维护count的二分搜索树<br/>(支持重复元素的二分搜索树) | [整理中，敬请期待] |
 | 补充代码13: 有重复元素节点的二分搜索树<br/>(另一种支持重复元素的二分搜索树实现) | [整理中，敬请期待] |
-| **第七章 集合和映射** | [章节Java源码](07-Set-and-Map/) |
-| 7-1 集合基础和基于二分搜索树的集合实现 | [Java](07-Set-and-Map/01-Set-Basics-and-BSTSet/) |
+| **第七章 集合和映射** | [章节C++源码](07-Set-and-Map/) |
+| 7-1 集合基础和基于二分搜索树的集合实现 | [C++](07-Set-and-Map/01-Set-Basics-and-BSTSet/) |
 | 7-2 基于链表的集合实现 | [C++](07-Set-and-Map/02-LinkedListSet/) |
 | 7-3 集合类的复杂度分析 | [C++](07-Set-and-Map/03-Time-Complexity-of-Set/) |
 | 7-4 Leetcode中的集合问题和更多集合相关问题 | [C++](07-Set-and-Map/04-TreeSet-and-Set-Problems-in-Leetcode/) |
@@ -158,7 +158,7 @@
 | 10-6 Trie字典树和字符串映射 | [C++](10-Trie/06-Trie-and-Map/) |
 | 10-7 更多和Trie字典树相关的话题 | [无代码] |
 | 10-8 [文字补充] 基于哈希表或者数组的Trie | [C++](10-Trie/08-Trie-Using-HashMap-and-Array/) |
-| 补充代码1: Trie的递归实现 | [Java](10-Trie/Optional-01-Trie-in-Recursion/) |
+| 补充代码1: Trie的递归实现 | [C++](10-Trie/Optional-01-Trie-in-Recursion/) |
 | 补充代码2: 使用Trie删除元素 | [整理中，敬请期待] |
 | 补充代码3: TrieSet和TrieMap | [整理中，敬请期待] |
 | 补充代码4: 压缩字典树 | [整理中，敬请期待] |
@@ -225,5 +225,9 @@
 | 15-2 [文字补充]更多数据结构的练习：） | [无代码] |
 | **第十六章 补充章节：B类树** | [更新中，敬请期待] |
 | [由于B类树不是课程最初规划内容] | [更新时间待定，敬请期待] |
+
+---
+
+由于慕课网规定，课程不再提供PPT下载，仅提供ppt转pdf水印版，请谅解。具体文件在各章文件夹下。
 
 

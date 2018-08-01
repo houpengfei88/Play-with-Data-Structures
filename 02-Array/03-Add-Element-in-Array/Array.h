@@ -2,6 +2,8 @@
 // Created by hpf on 18-5-8.
 //
 
+#include <cassert>
+
 class Array {
 private:
     int *data;
@@ -9,11 +11,6 @@ private:
     int capacity;
 
 public:
-    class Full {
-    };
-
-    class Range {
-    };
     Array(int capacity) {
         data = new int[capacity];
         size = 0;
@@ -39,12 +36,7 @@ public:
     }
 
     void add(int index, int e) {
-        if (size == capacity) {
-            throw Full();
-        }
-        if (index < 0 || index > size) {
-            throw Range();
-        }
+        assert(size < capacity && index >= 0 && index <= size);
         for (int i = size - 1; i >= index; --i) {
             data[i + 1] = data[i];
         }

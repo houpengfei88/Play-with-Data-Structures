@@ -1,3 +1,7 @@
+//
+// Created by hpf on 18-5-8.
+//
+
 #include <iostream>
 
 int main() {
@@ -25,6 +29,7 @@ int main() {
     for (int l = 0; l < sizeof(scores) / sizeof(int); ++l) {
         std::cout << scores[l] << " ";
     }
-    std::cout << std::endl;   
+    std::cout << std::endl;
     return 0;
 }
+
