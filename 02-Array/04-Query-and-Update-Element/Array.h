@@ -54,12 +54,12 @@ public:
     }
 
     int get(int index) {
-        assert(index > 0 && index <= size);
+        assert(index > 0 && index < size);
         return data[index];
     }
 
     void set(int index, int e) {
-        assert(index > 0 && index <= size);
+        assert(index > 0 && index < size);
         data[index] = e;
     }
 
