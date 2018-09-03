@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <cassert>
 
 template<class T>
 class Array {
@@ -52,9 +53,7 @@ public:
     }
 
     void add(int index, T e) {
-        if (index < 0 || index > size) {
-            throw Range();
-        }
+        assert(index >= 0 && index <= size);
         if (size == capacity) {
             resize(2 * capacity);
         }
@@ -74,16 +73,12 @@ public:
     }
 
     T get(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         return data[index];
     }
 
     void set(int index, T e) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         data[index] = e;
     }
 
@@ -106,9 +101,7 @@ public:
     }
 
     T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         T ret = data[index];
         for (int i = index + 1; i < size; ++i) {
             data[i - 1] = data[i];

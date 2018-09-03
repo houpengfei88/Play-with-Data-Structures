@@ -2,6 +2,9 @@
 // Created by hpf on 18-5-8.
 //
 
+#include <cassert>
+#include <iostream>
+
 template<class T>
 class Array {
 private:
@@ -10,11 +13,6 @@ private:
     int capacity;
 
 public:
-    class Full {
-    };
-
-    class Range {
-    };
 
     Array(int capacity) {
         data = new T[capacity];
@@ -41,12 +39,7 @@ public:
     }
 
     void add(int index, T e) {
-        if (size == capacity) {
-            throw Full();
-        }
-        if (index < 0 || index > size) {
-            throw Range();
-        }
+	assert(size < capacity && index >= 0 && index <= size);
         for (int i = size - 1; i >= index; --i) {
             data[i + 1] = data[i];
         }
@@ -63,16 +56,12 @@ public:
     }
 
     T get(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         return data[index];
     }
 
     void set(int index, T e) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         data[index] = e;
     }
 
@@ -95,9 +84,7 @@ public:
     }
 
     T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         T ret = data[index];
         for (int i = index + 1; i < size; ++i) {
             data[i - 1] = data[i];
