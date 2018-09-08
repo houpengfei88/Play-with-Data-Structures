@@ -2,8 +2,8 @@
 // Created by hpf on 18-5-8.
 //
 
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 template<class T>
 class Array {
@@ -12,8 +12,16 @@ private:
     int size;
     int capacity;
 
-public:
+    void resize(int newCapacity){
+        T *newData = new T[newCapacity];
+        for (int i = 0; i < size; ++i) {
+            newData[i] = data[i];
+        }
+        data = newData;
+        capacity = newCapacity;
+    }
 
+public:
     Array(int capacity) {
         data = new T[capacity];
         size = 0;
@@ -21,9 +29,9 @@ public:
     }
 
     Array() {
-        data = new T[10];
+        data = new T[5];
         size = 0;
-        capacity = 10;
+        capacity = 5;
     }
 
     int getCapacity() {
@@ -39,7 +47,10 @@ public:
     }
 
     void add(int index, T e) {
-	assert(size < capacity && index >= 0 && index <= size);
+        assert(index >= 0 && index <= size);
+        if (size == capacity) {
+            resize(2 * capacity);
+        }
         for (int i = size - 1; i >= index; --i) {
             data[i + 1] = data[i];
         }
@@ -90,6 +101,9 @@ public:
             data[i - 1] = data[i];
         }
         size--;
+        if (size == capacity / 4 && capacity / 2 != 0){
+            resize(capacity / 2);
+        }
         return ret;
     }
 
@@ -112,8 +126,9 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Array: size = " << size << ", capacity = " << capacity << std::endl;
+        std::cout << "Array: size = " << size << ", capacity = " << getCapacity() << std::endl;
         toPrint();
+	std::cout << std::endl;
     }
 
     void toPrint() {
@@ -124,6 +139,7 @@ public:
                 std::cout << ", ";
             }
         }
-        std::cout << "]" << std::endl;
+        std::cout << "]";
     }
 };
+

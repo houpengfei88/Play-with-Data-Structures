@@ -2,8 +2,8 @@
 // Created by hpf on 18-5-8.
 //
 
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 template<class T>
 class Array {
@@ -12,22 +12,7 @@ private:
     int size;
     int capacity;
 
-    void resize(int newCapacity){
-        T *newData = new T[newCapacity];
-        for (int i = 0; i < size; ++i) {
-            newData[i] = data[i];
-        }
-        data = newData;
-        capacity = newCapacity;
-    }
-
 public:
-    class Full {
-    };
-
-    class Range {
-    };
-
     Array(int capacity) {
         data = new T[capacity];
         size = 0;
@@ -35,9 +20,9 @@ public:
     }
 
     Array() {
-        data = new T[5];
+        data = new T[10];
         size = 0;
-        capacity = 5;
+        capacity = 10;
     }
 
     int getCapacity() {
@@ -53,10 +38,7 @@ public:
     }
 
     void add(int index, T e) {
-        assert(index >= 0 && index <= size);
-        if (size == capacity) {
-            resize(2 * capacity);
-        }
+	assert(size < capacity && index >= 0 && index <= size);
         for (int i = size - 1; i >= index; --i) {
             data[i + 1] = data[i];
         }
@@ -107,9 +89,6 @@ public:
             data[i - 1] = data[i];
         }
         size--;
-        if (size == capacity / 2){
-            resize(capacity / 2);
-        }
         return ret;
     }
 
@@ -134,6 +113,7 @@ public:
     void print() {
         std::cout << "Array: size = " << size << ", capacity = " << getCapacity() << std::endl;
         toPrint();
+	std::cout << std::endl;
     }
 
     void toPrint() {
@@ -144,7 +124,6 @@ public:
                 std::cout << ", ";
             }
         }
-        std::cout << "]" << std::endl;
+        std::cout << "]";
     }
 };
-

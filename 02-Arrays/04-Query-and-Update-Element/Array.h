@@ -67,8 +67,9 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Array: size = " << size << ", capacity = " << capacity << std::endl;
+        std::cout << "Array: size = " << size << ", capacity = " << getCapacity() << std::endl;
         toPrint();
+	std::cout << std::endl;
     }
 
     void toPrint() {
@@ -79,7 +80,7 @@ public:
                 std::cout << ", ";
             }
         }
-        std::cout << "]" << std::endl;
+        std::cout << "]";
     }
 };
 

@@ -5,23 +5,33 @@
 #include <iostream>
 #include <cassert>
 
+template<class T>
 class Array {
 private:
-    int *data;
+    T *data;
     int size;
     int capacity;
 
+    void resize(int newCapacity){
+        T *newData = new T[newCapacity];
+        for (int i = 0; i < size; ++i) {
+            newData[i] = data[i];
+        }
+        data = newData;
+        capacity = newCapacity;
+    }
+
 public:
     Array(int capacity) {
-        data = new int[capacity];
+        data = new T[capacity];
         size = 0;
         this->capacity = capacity;
     }
 
     Array() {
-        data = new int[10];
+        data = new T[5];
         size = 0;
-        capacity = 10;
+        capacity = 5;
     }
 
     int getCapacity() {
@@ -36,8 +46,11 @@ public:
         return size == 0;
     }
 
-    void add(int index, int e) {
-        assert(size < capacity && index >= 0 && index <= size);
+    void add(int index, T e) {
+        assert(index >= 0 && index <= size);
+        if (size == capacity) {
+            resize(2 * capacity);
+        }
         for (int i = size - 1; i >= index; --i) {
             data[i + 1] = data[i];
         }
@@ -45,25 +58,25 @@ public:
         size++;
     }
 
-    void addFirst(int e) {
+    void addFirst(T e) {
         add(0, e);
     }
 
-    void addLast(int e) {
+    void addLast(T e) {
         add(size, e);
     }
 
-    int get(int index) {
+    T get(int index) {
         assert(index >= 0 && index < size);
         return data[index];
     }
 
-    void set(int index, int e) {
+    void set(int index, T e) {
         assert(index >= 0 && index < size);
         data[index] = e;
     }
 
-    bool contains(int e) {
+    bool contains(T e) {
         for (int i = 0; i < size; ++i) {
             if (data[i] == e) {
                 return true;
@@ -72,7 +85,7 @@ public:
         return false;
     }
 
-    int find(int e) {
+    int find(T e) {
         for (int i = 0; i < size; ++i) {
             if (data[i] == e) {
                 return i;
@@ -81,27 +94,30 @@ public:
         return -1;
     }
 
-    int remove(int index) {
+    T remove(int index) {
         assert(index >= 0 && index < size);
-        int ret = data[index];
+        T ret = data[index];
         for (int i = index + 1; i < size; ++i) {
             data[i - 1] = data[i];
         }
-        size --;
+        size--;
+        if (size == capacity / 2){
+            resize(capacity / 2);
+        }
         return ret;
     }
 
-    int removeFirst() {
+    T removeFirst() {
         return remove(0);
     }
 
-    int removeLast(){
+    T removeLast() {
         return remove(size - 1);
     }
 
-    void removeElement(int e) {
+    void removeElement(T e) {
         int index = find(e);
-        if(index != -1) {
+        if (index != -1) {
             remove(index);
         }
     }
@@ -110,8 +126,9 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Array: size = " << size << ", capacity = " << capacity << std::endl;
+        std::cout << "Array: size = " << size << ", capacity = " << getCapacity() << std::endl;
         toPrint();
+	std::cout << std::endl;
     }
 
     void toPrint() {
@@ -122,7 +139,7 @@ public:
                 std::cout << ", ";
             }
         }
-        std::cout << "]" << std::endl;
+        std::cout << "]";
     }
 };
 

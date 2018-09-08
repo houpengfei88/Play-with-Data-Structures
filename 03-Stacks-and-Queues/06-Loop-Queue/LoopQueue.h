@@ -7,13 +7,11 @@
 
 #include "Queue.h"
 #include <iostream>
+#include <cassert>
 
 template<class T>
 class LoopQueue : public Queue<T> {
 public:
-    class Empty {
-    };
-
     LoopQueue() {
         data = new T[10];
         front = 0;
@@ -54,16 +52,12 @@ public:
     }
 
     T getFront() {
-        if (isEmpty()) {
-            throw Empty();
-        }
+        assert(front != tail);
         return data[front];
     }
 
     T dequeue() {
-        if (isEmpty()) {
-            throw Empty();
-        }
+        assert(front != tail);
         T ret = data[front];
         front = (front + 1) % capacity;
         if (getSize() == capacity / 4 && capacity / 2 != 0) {
