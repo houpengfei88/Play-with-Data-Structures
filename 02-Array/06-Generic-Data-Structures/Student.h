@@ -17,5 +17,6 @@ public:
 
     friend std::ostream & operator<<(std::ostream &out, Student &student) {
         out << "name : " << student.name << ", " << " score : " << student.score;
+        return out;
     }
 };
