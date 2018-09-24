@@ -42,7 +42,7 @@ public:
         for (int i = 0; i < word.size(); ++i) {
             char c = word.at(i);
             if (cur->next.find(c) == cur->next.end()) {
-                cur->next.insert(std::pair<char, Node>(c, new Node()));
+                cur->next.insert(std::pair<char, Node>(c, Node()));
             }
             cur = &cur->next.find(c)->second;
         }
