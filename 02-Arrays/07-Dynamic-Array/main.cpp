@@ -15,10 +15,12 @@ int main() {
     array->print();
     array->removeElement(4);
     array->print();
-    array->removeLast();
-    array->print();
-    array->removeFirst();
-    array->print();
-
+    for (int i = 0; i < 2; i++) {
+        array->removeLast();
+        array->print();
+        array->removeFirst();
+        array->print();
+    }
+    
     return 0;
 }

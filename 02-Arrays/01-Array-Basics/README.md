@@ -5,4 +5,3 @@
 * cmake配置 `cmake ..`
 * make 编译 `make`
 * 执行代码 `./Array-Basics`
-

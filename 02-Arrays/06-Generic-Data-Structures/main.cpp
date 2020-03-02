@@ -8,6 +8,5 @@ int main() {
     array->addLast(Student("Bob",66));
     array->addLast(Student("Charlie",88));
     array->print();
-
     return 0;
 }
