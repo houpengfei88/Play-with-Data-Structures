@@ -2,13 +2,13 @@
 // Created by hpf on 18-5-3.
 //
 
-#ifndef DATASTRUCTURE_ARRAYSTACK_H
-#define DATASTRUCTURE_ARRAYSTACK_H
+#ifndef ARRAYSTACK_H
+#define ARRAYSTACK_H
 
 #include "Array.h"
 #include "Stack.h"
 
-template<class T>
+template<typename T>
 class ArrayStack : public Stack<T> {
 public:
     ArrayStack(int capacity) {
@@ -48,9 +48,9 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Stack: size = " << array->getSize() << ", capacity = " << array->getCapacity() << std::endl;
+        std::cout << "ArrayStack: size = " << array->getSize() << ", capacity = " << array->getCapacity() << std::endl;
         std::cout << "bottom ";
-        array->toPrint();
+        array->print();
         std::cout << " top" << std::endl;
     }
 
@@ -58,4 +58,4 @@ private:
     Array<T> *array;
 };
 
-#endif //DATASTRUCTURE_ARRAYSTACK_H
+#endif //ARRAYSTACK_H

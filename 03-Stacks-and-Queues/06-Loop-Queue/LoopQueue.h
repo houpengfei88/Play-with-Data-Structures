@@ -2,14 +2,14 @@
 // Created by hpf on 18-5-3.
 //
 
-#ifndef DATASTRUCTURE_LOOPQUEUE_H
-#define DATASTRUCTURE_LOOPQUEUE_H
+#ifndef LOOPQUEUE_H
+#define LOOPQUEUE_H
 
 #include "Queue.h"
 #include <iostream>
 #include <cassert>
 
-template<class T>
+template<typename T>
 class LoopQueue : public Queue<T> {
 public:
     LoopQueue() {
@@ -70,7 +70,7 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Queue: size = " << getSize() << ", capacity = " << capacity << std::endl;
+        std::cout << "LoopQueue: size = " << getSize() << ", capacity = " << capacity << std::endl;
         std::cout << "front [";
         for (int i = front; i != tail; i = (i + 1) % capacity) {
             std::cout << data[i];
@@ -86,6 +86,7 @@ private:
     int front, tail;
     int capacity;
 
+    // 将数组空间的容量变成newCapacity大小
     void resize(int newCapacity) {
         T *newData = new T[newCapacity + 1];
         for (int i = 0; i < getSize(); ++i) {
@@ -95,8 +96,10 @@ private:
         tail = getSize();
         front = 0;
         capacity = newCapacity;
+        newData = nullptr;
+        delete []newData;
     }
 
 };
 
-#endif //DATASTRUCTURE_LOOPQUEUE_H
+#endif //LOOPQUEUE_H

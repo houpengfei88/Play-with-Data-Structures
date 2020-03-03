@@ -2,21 +2,21 @@
 // Created by hpf on 18-5-3.
 //
 
-#ifndef DATASTRUCTURE_QUEUE_H
-#define DATASTRUCTURE_QUEUE_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 template<typename T>
 class Queue {
 public:
-    int getSize();
+    virtual int getSize() = 0;
 
-    bool isEmpty();
+    virtual bool isEmpty() = 0;
 
-    void enqueue(T e);
+    virtual void enqueue(T e) = 0;
 
-    T dequeue();
+    virtual T dequeue() = 0;
 
-    T getFront();
+    virtual T getFront() = 0;
 };
 
-#endif //DATASTRUCTURE_QUEUE_H
+#endif //QUEUE_H

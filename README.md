@@ -1,14 +1,15 @@
 # Algorithm-With-C
 
-* 大家好，欢迎大家来到我在[慕课网](https://www.imooc.com/t/108955)上购买的实战课程[《玩儿转数据结构》](https://coding.imooc.com/class/207.html)的C++代码仓库。[官方代码仓库](https://github.com/liuyubobobo/Play-with-Data-Structures)为刘宇波老师使用JAVA语言所写，后期将增加Python代码。欢迎大家购买和观看。波波老师的课非常实用，而且性价比极高。
+* 大家好，欢迎大家来到我在[慕课网](https://www.imooc.com/t/108955)上购买的实战课程[《玩儿转数据结构》](https://coding.imooc.com/class/207.html)的C++代码仓库。[官方代码仓库](https://github.com/liuyubobobo/Play-with-Data-Structures)为刘宇波老师使用JAVA语言所写。欢迎大家购买和观看。波波老师的课非常实用，而且性价比极高。
 
 #### 使用环境
 
-* Ubuntu18.04.01
-* g++ 7.3.0
-* CMake 3.10.2
-* CLion
-* C++11
+* Debian (WSL)
+* g++ 8.3.0
+* CMake 3.13.4
+* VSCode 
+* VSCode 插件 Remote WSL
+* C++17
 
 #### 说明
 
@@ -26,10 +27,12 @@
 
 | **第一章 欢迎大家学习《玩儿转数据结构》** | [无代码] | 
 | :--- | :---: | 
-| 1-1 欢迎大家学习《玩儿转数据结构》 | [无代码] |
+| 1-1 欢迎学习《玩儿转数据结构》 | [无代码] |
 | 1-2 学习数据结构（和算法）到底有没有用？ | [无代码] |
-| 1-3 课程学习的更多注意事项 | [无代码] |
-| 1-4 课程编程环境的安装 | [无代码] |
+| 1-3 关于课程学习的更多注意事项 | [无代码] |
+| 1-4 课程编程环境搭建 | [无代码] |
+| 1-5 关于课程的其他语言支持:Python, C++, JS, Go | [无代码] |
+| 1-6 在学习数据结构的具体知识前，你可能想读一读这两篇文章 | [无代码] |
 | **第二章 不要小瞧数组** | [章节C++源码](02-Arrays/) |
 | 2-1 使用Java中的数组 | [C++](02-Arrays/01-Array-Basics/) |
 | 2-2 二次封装属于我们自己的数组 | [C++](02-Arrays/02-Create-Our-Own-Array/) |

@@ -7,6 +7,7 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
 class Solution {
 public:
     std::vector <std::vector<int>> levelOrder(TreeNode *root) {
@@ -14,16 +15,20 @@ public:
         if (root == nullptr) {
             return res;
         }
+
         LoopQueue <pair<TreeNode *, int>> *queue = new LoopQueue <pair<TreeNode *, int>>();
         queue->enqueue(make_pair(root, 0));
+
         while (!queue->isEmpty()) {
             TreeNode *node = queue->getFront().first;
             int level = queue->getFront().second;
             queue->dequeue();
+
             if (level == res.size()) {
                 res.push_back(std::vector<int>());
             }
             assert(level < res.size() && level >= 0);
+            
             res[level].push_back(node->val);
             if (node->left) {
                 queue->enqueue(std::make_pair(node->left, level + 1));
@@ -39,18 +44,18 @@ private:
     template<typename T>
     class Queue {
     public:
-        int getSize();
+        virtual int getSize() = 0;
 
-        bool isEmpty();
+        virtual bool isEmpty() = 0;
 
-        void enqueue(T e);
+        virtual void enqueue(T e) = 0;
 
-        T dequeue();
+        virtual T dequeue() = 0;
 
-        T getFront();
+        virtual T getFront() = 0;
     };
 
-    template<class T>
+    template<typename T>
     class LoopQueue : public Queue<T> {
     public:
 
@@ -112,7 +117,7 @@ private:
          * 打印数组的所有元素
          */
         void print() {
-            std::cout << "Queue: size = " << getSize() << ", capacity = " << capacity << std::endl;
+            std::cout << "LoopQueue: size = " << getSize() << ", capacity = " << capacity << std::endl;
             std::cout << "front [";
             for (int i = front; i != tail; i = (i + 1) % capacity) {
                 std::cout << data[i];
@@ -128,6 +133,7 @@ private:
         int front, tail;
         int capacity;
 
+        // 将数组空间的容量变成newCapacity大小
         void resize(int newCapacity) {
             T *newData = new T[newCapacity + 1];
             for (int i = 0; i < getSize(); ++i) {
@@ -137,6 +143,8 @@ private:
             tail = getSize();
             front = 0;
             capacity = newCapacity;
+            newData = nullptr;
+            delete[] newData;
         }
     };
 };

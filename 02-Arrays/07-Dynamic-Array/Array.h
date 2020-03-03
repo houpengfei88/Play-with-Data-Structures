@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cassert>
 
-template<class T>
+template<typename T>
 class Array {
 public:
     // 构造函数，传入数组的容量capacity构造Array
@@ -152,7 +152,8 @@ private:
         }
         data = newData;
         capacity = newCapacity;
-        delete newData;
+        newData = nullptr;
+        delete []newData;
     }
 };
 

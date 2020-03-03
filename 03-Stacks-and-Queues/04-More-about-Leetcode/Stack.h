@@ -2,21 +2,21 @@
 // Created by hpf on 18-5-3.
 //
 
-#ifndef DATASTRUCTURE_STACK_H
-#define DATASTRUCTURE_STACK_H
+#ifndef STACK_H
+#define STACK_H
 
-template<class T>
+template<typename T>
 class Stack {
 public:
-    int getSize();
+    virtual int getSize() = 0;
 
-    bool isEmpty();
+    virtual bool isEmpty() = 0;
 
-    void push(T e);
+    virtual void push(T e) = 0;
 
-    T pop();
+    virtual T pop() = 0;
 
-    T peek();
+    virtual T peek() = 0;
 };
 
-#endif //DATASTRUCTURE_STACK_H
+#endif //STACK_H

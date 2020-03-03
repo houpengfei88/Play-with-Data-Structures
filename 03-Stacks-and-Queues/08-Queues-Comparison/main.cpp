@@ -22,5 +22,9 @@ int main() {
     std::cout << "ArrayQueue time: " << testQueue(arrayQueue, opCount) << " s" << std::endl;
     LoopQueue<int> *loopQueue = new LoopQueue<int>();
     std::cout << "LoopQueue time: " << testQueue(loopQueue, opCount) << " s" << std::endl;
+    arrayQueue = nullptr;
+    loopQueue = nullptr;
+    delete arrayQueue;
+    delete loopQueue;
     return 0;
 }

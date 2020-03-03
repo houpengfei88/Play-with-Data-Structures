@@ -2,13 +2,13 @@
 // Created by hpf on 18-5-3.
 //
 
-#ifndef DATASTRUCTURE_ARRAYQUEUE_H
-#define DATASTRUCTURE_ARRAYQUEUE_H
+#ifndef ARRAYQUEUE_H
+#define ARRAYQUEUE_H
 
 #include "Queue.h"
 #include "Array.h"
 
-template<class T>
+template<typename T>
 class ArrayQueue : public Queue<T> {
 public:
     ArrayQueue() {
@@ -48,9 +48,9 @@ public:
      * 打印数组的所有元素
      */
     void print() {
-        std::cout << "Queue: size = " << array->getSize() << ", capacity = " << array->getCapacity() << std::endl;
+        std::cout << "ArrayQueue: size = " << array->getSize() << ", capacity = " << array->getCapacity() << std::endl;
         std::cout << "front ";
-        array->toPrint();
+        array->print();
         std::cout << " tail" << std::endl;
     }
 
@@ -58,4 +58,4 @@ private:
     Array<T> *array;
 };
 
-#endif //DATASTRUCTURE_ARRAYQUEUE_H
+#endif //ARRAYQUEUE_H
