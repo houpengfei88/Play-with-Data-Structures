@@ -1,4 +1,4 @@
-template<class T>
+template<typename T>
 class Solution5 {
 public:
     ListNode<T>* removeElements(ListNode<T>* head, int val) {

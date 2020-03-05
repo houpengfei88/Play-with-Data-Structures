@@ -1,8 +1,10 @@
-template<class T>
+#include <iostream>
+
+template<typename T>
 class ListNode {
 public:
     T val;
-    ListNode *next;
+    ListNode<T> *next;
     ListNode(T x) {
         val = x;
     }

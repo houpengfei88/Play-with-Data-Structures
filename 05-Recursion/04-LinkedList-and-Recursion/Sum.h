@@ -2,7 +2,7 @@
 // Created by hpf on 18-5-9.
 //
 
-template<class T>
+template<typename T>
 class Sum {
 public:
     static T sum(T arr[], int n) {

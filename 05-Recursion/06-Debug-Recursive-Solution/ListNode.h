@@ -3,24 +3,19 @@
 //
 
 #include <iostream>
+#include <cassert>
 
-template<class T>
+template<typename T>
 class ListNode {
 public:
-    class Empty {
-    };
-
     T val;
     ListNode *next;
 
     ListNode(T x) {
         val = x;
     }
-
     ListNode(T arr[], int n) {
-        if (arr == nullptr || n == 0) {
-            throw Empty();
-        }
+        assert(arr != nullptr && n != 0);
         val = arr[0];
         ListNode<T> *cur = this;
         for (int i = 1; i < n; i++) {

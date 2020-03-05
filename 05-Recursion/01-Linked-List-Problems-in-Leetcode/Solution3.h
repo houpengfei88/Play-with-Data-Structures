@@ -1,3 +1,6 @@
+// Leetcode 203. Remove Linked List Elements
+// https://leetcode.com/problems/remove-linked-list-elements/description/
+
 class Solution3 {
 public:
     ListNode* removeElements(ListNode* head, int val) {
@@ -11,6 +14,8 @@ public:
                 prev = prev->next;
             }
         }
+        prev = nullptr;
+        delete prev;
         return dummyHead->next;
     }
 };

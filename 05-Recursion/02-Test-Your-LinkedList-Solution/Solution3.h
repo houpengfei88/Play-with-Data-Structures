@@ -1,4 +1,4 @@
-template<class T>
+template<typename T>
 class Solution3 {
 public:
     ListNode<T>* removeElements(ListNode<T>* head, int val) {
@@ -12,6 +12,8 @@ public:
                 prev = prev->next;
             }
         }
+        prev = nullptr;
+        delete prev;
         return dummyHead->next;
     }
 };
