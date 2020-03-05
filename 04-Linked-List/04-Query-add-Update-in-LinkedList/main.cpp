@@ -8,6 +8,8 @@ int main() {
         linkedList->print();
     }
     linkedList->add(2, 30);
-    linkedList->print();    
+    linkedList->print();  
+    linkedList = nullptr;
+    delete linkedList;  
     return 0;
 }

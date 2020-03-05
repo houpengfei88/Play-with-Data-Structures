@@ -25,5 +25,11 @@ int main() {
     std::cout << "LoopQueue time: " << testQueue(loopQueue, opCount) << " s" << std::endl;
     LinkedListQueue<int> *linkedListQueue = new LinkedListQueue<int>();
     std::cout << "LinkedListQueue time: " << testQueue(linkedListQueue, opCount) << " s" << std::endl;
+    arrayQueue = nullptr;
+    loopQueue = nullptr;
+    linkedListQueue = nullptr;
+    delete arrayQueue;
+    delete loopQueue;
+    delete linkedListQueue;
     return 0;
 }

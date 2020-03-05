@@ -1,8 +1,9 @@
 //
 // Created by hpf on 18-5-10.
 //
+#include <iostream>
 
-template<class T>
+template<typename T>
 class Node {
 public:
     T e;
@@ -15,11 +16,8 @@ public:
     }
 };
 
-template<class T>
+template<typename T>
 class BST {
-private:
-    Node<T> *root;
-    int size;
 public:
     BST() {
         root = nullptr;
@@ -33,4 +31,8 @@ public:
     bool isEmpty() {
         return size == 0;
     }
+
+private:
+    Node<T> *root;
+    int size;
 };

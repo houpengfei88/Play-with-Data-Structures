@@ -21,6 +21,7 @@ int main() {
         array->removeFirst();
         array->print();
     }
-    
+    array = nullptr;
+    delete array;
     return 0;
 }

@@ -5,7 +5,7 @@
 #include <stack>
 #include <iostream>
 
-template<class T>
+template<typename T>
 class Node {
 public:
     T e;
@@ -18,59 +18,8 @@ public:
     }
 };
 
-template<class T>
+template<typename T>
 class BST {
-private:
-    Node<T> *root;
-    int size;
-
-    bool contains(Node<T> *node, T e) {
-        if (node == nullptr) {
-            return false;
-        }
-
-        if (node->e == e) {
-            return true;
-        } else if (node->e > e) {
-            return contains(node->left, e);
-        } else {
-            return contains(node->right, e);
-        }
-    }
-
-    void preOrder(Node<T> *node) {
-        if (node == nullptr) {
-            return;
-        }
-		std::cout << node->e << " ";
-        preOrder(node->left);
-        preOrder(node->right);
-    }
-
-    void inOrder(Node<T> *node) {
-        if (node == nullptr) {
-            return;
-        }
-		inOrder(node->left);
-        std::cout << node->e << " ";
-        inOrder(node->right);
-    }
-
-    void postOrder(Node<T> *node) {
-        if (node == nullptr) {
-            return;
-        }
-		postOrder(node->left);
-        postOrder(node->right);
-        std::cout << node->e << " ";
-    }
-
-    void generateDepthString(int depth) {
-        for (int i = 0; i < depth; ++i) {
-            std::cout << "--";
-        }
-    }
-
 public:
     BST() {
         root = nullptr;
@@ -97,7 +46,7 @@ public:
     Node<T> *add(Node<T> *node, T e) {
         if (node == nullptr) {
             size++;
-	    return new Node<T>(e);
+	        return new Node<T>(e);
         } 
 		if (node->e > e) {
             node->left = add(node->left, e);
@@ -110,6 +59,7 @@ public:
     bool contains(T e) {
         return contains(root, e);
     }
+
     void preOrder() {
         preOrder(root);
         std::cout << std::endl;
@@ -199,5 +149,56 @@ public:
 
     void print() {
         generateBSTString(root, 0);
+    }
+
+private:
+    Node<T> *root;
+    int size;
+
+    bool contains(Node<T> *node, T e) {
+        if (node == nullptr) {
+            return false;
+        }
+
+        if (node->e == e) {
+            return true;
+        } else if (node->e > e) {
+            return contains(node->left, e);
+        } else {
+            return contains(node->right, e);
+        }
+    }
+
+    void preOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+		std::cout << node->e << " ";
+        preOrder(node->left);
+        preOrder(node->right);
+    }
+
+    void inOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+		inOrder(node->left);
+        std::cout << node->e << " ";
+        inOrder(node->right);
+    }
+
+    void postOrder(Node<T> *node) {
+        if (node == nullptr) {
+            return;
+        }
+		postOrder(node->left);
+        postOrder(node->right);
+        std::cout << node->e << " ";
+    }
+
+    void generateDepthString(int depth) {
+        for (int i = 0; i < depth; ++i) {
+            std::cout << "--";
+        }
     }
 };

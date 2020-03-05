@@ -8,5 +8,9 @@ int main() {
     head->print();
     ListNode<int> *res = Solution<int>().removeElements(head, 6, 0);
     res->print();
+    head = nullptr;
+    res = nullptr;
+    delete head;
+    delete res;
     return 0;
 }

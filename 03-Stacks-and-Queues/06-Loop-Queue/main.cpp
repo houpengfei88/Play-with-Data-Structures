@@ -14,5 +14,7 @@ int main() {
     loopQueue->dequeue();
     loopQueue->print();
     std::cout << loopQueue->getFront() << std::endl;
+    loopQueue = nullptr;
+    delete loopQueue;
     return 0;
 }

@@ -3,14 +3,16 @@
 #include "Solution.h"
 
 int main() {
-    LinkedListStack<int> *stack = new LinkedListStack<int>();
+    LinkedListStack<int> *linkedListStack = new LinkedListStack<int>();
     for (int i = 0; i < 5; ++i) {
-		stack->push(i);
-		stack->print();
+        linkedListStack->push(i);
+        linkedListStack->print();
     }
-    std::cout << stack->pop() << std::endl;
-    stack->print();
+    std::cout << linkedListStack->pop() << std::endl;
+    linkedListStack->print();
     std::cout << std::boolalpha << Solution().isValid("(){}[]") << std::endl;
     std::cout << std::boolalpha << Solution().isValid("([)]") << std::endl;
+    linkedListStack = nullptr;
+    delete linkedListStack;
     return 0;
 }

@@ -2,12 +2,14 @@
 #include "ArrayStack.h"
 
 int main() {
-    ArrayStack<int> *stack = new ArrayStack<int>();
+    ArrayStack<int> *arrayStack = new ArrayStack<int>();
     for(int i = 0; i < 5; ++i) {
-	stack->push(i);
-	stack->print();
+	    arrayStack->push(i);
+	    arrayStack->print();
     }
-    std::cout << stack->pop() << std::endl;
-    stack->print();
+    std::cout << arrayStack->pop() << std::endl;
+    arrayStack->print();
+    arrayStack = nullptr;
+    delete arrayStack;
     return 0;
 }

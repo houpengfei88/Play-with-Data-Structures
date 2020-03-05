@@ -18,5 +18,7 @@ int main() {
     array->print();
     array->removeLast(); 
     array->print();
+    array = nullptr;
+    delete array;
     return 0;
 }

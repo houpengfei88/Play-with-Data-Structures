@@ -10,5 +10,7 @@ int main() {
     array->add(1, 100);
     array->addFirst(-1);
     array->print();
+    array = nullptr;
+    delete array;
     return 0;
 }

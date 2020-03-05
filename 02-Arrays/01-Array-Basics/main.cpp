@@ -31,7 +31,6 @@ int main() {
         std::cout << scores[l] << " ";
     }
     std::cout << std::endl;
-
     return 0;
 }
 

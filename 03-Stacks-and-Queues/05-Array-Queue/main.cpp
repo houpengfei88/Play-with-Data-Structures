@@ -2,14 +2,16 @@
 #include "ArrayQueue.h"
 
 int main() {
-    ArrayQueue<int> *queue = new ArrayQueue<int>();
+    ArrayQueue<int> *arrayQueue = new ArrayQueue<int>();
     for (int i = 0; i < 10; ++i) {
-		queue->enqueue(i);
-		queue->print();
+		arrayQueue->enqueue(i);
+		arrayQueue->print();
     	if (i % 3 == 2) {
-	    	queue->dequeue();
-	    	queue->print();
+	    	arrayQueue->dequeue();
+	    	arrayQueue->print();
 		}
-    }  
+    } 
+	arrayQueue = nullptr;
+    delete arrayQueue;
     return 0;
 }

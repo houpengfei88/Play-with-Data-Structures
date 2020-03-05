@@ -26,7 +26,7 @@ public:
     }
 
 private:
-    template<class T>
+    template<typename T>
     class Node {
     public:
         T e;
@@ -39,11 +39,8 @@ private:
         }
     };
 
-    template<class T>
+    template<typename T>
     class BST {
-    private:
-        Node<T> *root;
-        int size;
     public:
         BST() {
             root = nullptr;
@@ -86,5 +83,9 @@ private:
                 add(node->right, e);
             }
         }
+        
+    private:
+        Node<T> *root;
+        int size;
     };
 };

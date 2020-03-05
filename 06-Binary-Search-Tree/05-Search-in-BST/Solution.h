@@ -28,7 +28,7 @@ public:
     }
 
 private:
-    template<class T>
+    template<typename T>
     class Node {
     public:
         T e;
@@ -41,25 +41,8 @@ private:
         }
     };
 
-    template<class T>
+    template<typename T>
     class BST {
-    private:
-        Node<T> *root;
-        int size;
-		bool contains(Node<T> *node, T e) {
-            if (node == nullptr) {
-                return false;
-            }
-
-            if (node->e == e) {
-                return true;
-            } else if (node->e > e) {
-                return contains(node->left, e);
-            } else {
-                return contains(node->right, e);
-            }
-        }
-
     public:
         BST() {
             root = nullptr;
@@ -99,5 +82,22 @@ private:
 		bool contains(T e) {
             return contains(root, e);
     	}
+    
+    private:
+        Node<T> *root;
+        int size;
+		bool contains(Node<T> *node, T e) {
+            if (node == nullptr) {
+                return false;
+            }
+
+            if (node->e == e) {
+                return true;
+            } else if (node->e > e) {
+                return contains(node->left, e);
+            } else {
+                return contains(node->right, e);
+            }
+        }
     };
 };
