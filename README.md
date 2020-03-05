@@ -1,6 +1,6 @@
 # Algorithm-With-C
 
-* 大家好，欢迎大家来到我在[慕课网](https://www.imooc.com/t/108955)上购买的实战课程[《玩儿转数据结构》](https://coding.imooc.com/class/207.html)的C++代码仓库。[官方代码仓库](https://github.com/liuyubobobo/Play-with-Data-Structures)为刘宇波老师使用JAVA语言所写。欢迎大家购买和观看。波波老师的课非常实用，而且性价比极高。
+**大家好，欢迎大家来到我在[慕课网](https://www.imooc.com/t/108955)上购买的实战课程[《玩儿转数据结构》](https://coding.imooc.com/class/207.html)的C++代码仓库。[官方代码仓库](https://github.com/liuyubobobo/Play-with-Data-Structures)为刘宇波老师使用JAVA语言所写。欢迎大家购买和观看。波波老师的课非常实用，而且性价比极高。**
 
 #### 使用环境
 
@@ -52,7 +52,8 @@
 | 3-6 循环队列 | [C++](03-Stacks-and-Queues/06-Loop-Queue/) |
 | 3-7 循环队列的实现 | [C++](03-Stacks-and-Queues/07-Implementation-of-Loop-Queue/) |
 | 3-8 数组队列和循环队列的比较 | [C++](03-Stacks-and-Queues/08-Queues-Comparison/) |
-| 补充代码1: 没有size成员变量的循环队列 | [整理中，敬请期待] |
+| 补充代码1: 不浪费一个空间的循环队列 | [在3-6小节已经实现没有size成员变量的循环队列故不提供] |
+| 补充代码2: 没有size成员变量的循环队列 | [请看3-8小节]) |
 | **第四章 最基础的动态数据结构：链表** | [章节C++源码](04-Linked-List/) |
 | 4-1 什么是链表 | [C++](04-Linked-List/01-Linked-List-Basics/) | 
 | 4-2 在链表中添加元素 | [C++](04-Linked-List/02-Add-Elements-in-LinkedList/) | 

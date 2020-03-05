@@ -1,75 +1,45 @@
 //
-// Created by hpf on 18-5-3.
+// Created by hpf on 18-5-8.
 //
 
-#ifndef DATASTRUCTURE_ARRAY_H
-#define DATASTRUCTURE_ARRAY_H
-
 #include <iostream>
-#include <regex>
+#include <cassert>
 
-template<class T>
+template<typename T>
 class Array {
 public:
-    class Empty {
-    };
-
-    class Range {
-    };
-
-    /**
-     * 构造函数,传入数组容量构造Array
-     * @param capacity 数组容量
-     */
+    // 构造函数，传入数组的容量capacity构造Array
     Array(int capacity) {
-        this->data = new T[capacity];
-        this->size = 0;
+        data = new T[capacity];
+        size = 0;
         this->capacity = capacity;
     }
 
-    /**
-     * 析构函数
-     */
-    ~Array() {
-        delete[] data;
-        data = nullptr;
+    // 无参数的构造函数，默认数组的容量capacity=10
+    Array() {
+        data = new T[5];
+        size = 0;
+        capacity = 5;
     }
 
-    /**
-     * 得到数组的大小
-     * @return 数组大小
-     */
-    int getSize() {
-        return size;
-    }
-
-    /**
-     * 判断数组是否为空
-     * @return 数组为空返回 true
-     */
-    bool isEmpty() {
-        return size == 0;
-    }
-
-    /**
-     * 得到数组的容量
-     * @return 数组的容量
-     */
+    // 获取数组的容量
     int getCapacity() {
         return capacity;
     }
 
-    /**
-     * 向数组某一位置添加元素
-     * @param index 数组中的位置序号
-     * @param e 插入的元素
-     * @return 添加成功返回 true
-     */
-    bool add(int index, T e) {
-        if (index < 0 || index > size) {
-            std::cout << "Add failed. Require index >= 0 and index <= size" << std::endl;
-            return false;
-        }
+    // 获取数组中的元素个数
+    int getSize() {
+        return size;
+    }
+
+    // 返回数组是否为空
+    bool isEmpty() {
+        return size == 0;
+    }
+
+    // 在index索引的位置插入一个新元素e
+    void add(int index, T e) {
+        assert(index >= 0 && index <= size);
         if (size == capacity) {
             resize(2 * capacity);
         }
@@ -78,40 +48,63 @@ public:
         }
         data[index] = e;
         size++;
-        return true;
     }
 
-    /**
-     * 向数组头部添加元素
-     * @param e 要添加的元素
-     * @return 添加成功返回 true
-     */
-    bool addFirst(T e) {
-        return add(0, e);
+    // 在所有元素前添加一个新元素
+    void addFirst(T e) {
+        add(0, e);
     }
 
-    /**
-     * 向数组尾部添加元素
-     * @param e 要添加的元素
-     * @return 添加成功返回 true
-     */
-    bool addLast(T e) {
-        return add(size, e);
+    // 向所有元素后添加一个新元素
+    void addLast(T e) {
+        add(size, e);
     }
 
-    /**
-     * 删除数组中某一位置的元素
-     * @param index 数组中的序号
-     * @return 被删除的值
-     */
+    // 获取index索引位置的元素
+    T get(int index) {
+        assert(index >= 0 && index < size);
+        return data[index];
+    }
+
+    // 获取索引位置为0的元素
+    T getFirst() {
+        return get(0);
+    }
+
+    // 获取最后索引位置的元素
+    T getLast() {
+        return get(size - 1);
+    }
+
+    // 修改index索引位置的元素为e
+    void set(int index, T e) {
+        assert(index >= 0 && index < size);
+        data[index] = e;
+    }
+
+    // 查找数组中是否有元素e
+    bool contains(T e) {
+        for (int i = 0; i < size; ++i) {
+            if (data[i] == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 查找数组中元素e所在的索引，如果不存在元素e，则返回-1
+    int find(T e) {
+        for (int i = 0; i < size; ++i) {
+            if (data[i] == e) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // 从数组中删除index位置的元素, 返回删除的元素
     T remove(int index) {
-        if (index < 0 || index > size) {
-            std::cout << "Remove failed. Require index >= 0 and index < size" << std::endl;
-            throw Range();
-        }
-        if (size == 0) {
-            throw Empty();
-        }
+        assert(index >= 0 && index < size);
         T ret = data[index];
         for (int i = index + 1; i < size; ++i) {
             data[i - 1] = data[i];
@@ -123,112 +116,43 @@ public:
         return ret;
     }
 
+    // 从数组中删除第一个元素, 返回删除的元素
     T removeFirst() {
         return remove(0);
     }
 
+    // 从数组中删除最后一个元素, 返回删除的元素
     T removeLast() {
         return remove(size - 1);
     }
 
-    bool removeElement(T e) {
+    // 从数组中删除元素e
+    void removeElement(T e) {
         int index = find(e);
-        if (index >= 0) {
+        if (index != -1) {
             remove(index);
-            return true;
         }
-        return false;
     }
 
-    T get(int index) {
-        if (index < 0 || index >= size) {
-            std::cout << "Get failed. " << std::endl;
-            throw Range();
-        }
-        return data[index];
-    }
-
-    T getFirst() {
-        return get(0);
-    }
-
-    T getLast() {
-        return get(size - 1);
-    }
-
-    bool set(int index, T e) {
-        if (index < 0 || index >= size) {
-            return false;
-        }
-        data[index] = e;
-        return true;
-    }
-
-    bool setFirst(T e) {
-        return set(0, e);
-    }
-
-    bool setLast(T e) {
-        return set(size - 1, e);
-    }
-
-    bool contains(T e) {
-        for (int i = 0; i < size; ++i) {
-            if (data[i] == e) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 寻找元素e在数组中的位置
-     * @param e 想要查找的元素
-     * @return 元素的位置
-     */
-    int find(T e) {
-        for (int i = 0; i < size; ++i) {
-            if (data[i] == e) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    /**
-     * 打印数组的所有元素
-     */
+    //打印数组的所有元素
     void print() {
-        std::cout << "Array: size = " << size << ", capacity = " << capacity << std::endl;
-        toPrint();
-    }
-
-    void toPrint() {
         std::cout << "[";
         for (int i = 0; i < size; ++i) {
             std::cout << data[i];
             if (i != size - 1) {
-                std::cout << ", ";
+                std::cout << ",";
             }
         }
         std::cout << "]";
     }
+   
 
 private:
-    /**
-     * data 静态数组
-     * size 数组大小
-     * capacity 数组容量
-     */
     T *data;
     int size;
     int capacity;
 
-    /**
-     * 重新设置数组容量
-     * @param newCapacity 新的数组容量
-     * @return 新的数组
-     */
+    // 将数组空间的容量变成newCapacity大小
     void resize(int newCapacity) {
         T *newData = new T[newCapacity];
         for (int i = 0; i < size; ++i) {
@@ -236,8 +160,7 @@ private:
         }
         data = newData;
         capacity = newCapacity;
+        newData = nullptr;
+        delete[] newData;
     }
-
 };
-
-#endif //DATASTRUCTURE_ARRAY_H

@@ -2,13 +2,13 @@
 // Created by hpf on 18-5-7.
 //
 
-#ifndef DATASTRUCTURE_WITH_C_LINKEDLISTSTACK_H
-#define DATASTRUCTURE_WITH_C_LINKEDLISTSTACK_H
+#ifndef LINKEDLISTSTACK_H
+#define LINKEDLISTSTACK_H
 
 #include "Stack.h"
 #include "LinkedList.h"
 
-template<class T>
+template<typename T>
 class LinkedListStack : public Stack<T> {
 public:
     LinkedListStack() {
@@ -46,4 +46,4 @@ private:
     LinkedList<T> *linkedlist;
 };
 
-#endif //DATASTRUCTURE_WITH_C_LINKEDLISTSTACK_H
+#endif //LINKEDLISTSTACK_H

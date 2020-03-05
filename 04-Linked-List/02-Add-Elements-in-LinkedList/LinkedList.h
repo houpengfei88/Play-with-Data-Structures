@@ -2,34 +2,25 @@
 // Created by hpf on 18-5-8.
 //
 
-template<class T>
+#include <iostream>
+#include <cassert>
+
+template<typename T>
 class Node {
 public:
     T e;
-    Node *next;
+    Node<T> *next;
 
-    Node(T e, Node *next) : e(e), next(next) {
-    }
+    Node(T e, Node<T> *next) : e(e), next(next) {}
 
-    Node(T e) : e(e), next(nullptr) {
-    }
+    Node(T e) : e(e), next(nullptr) {}
 
-    Node() : e(), next(nullptr){
-    }
+    Node() : e(), next(nullptr) {}
 };
 
-template<class T>
+template<typename T>
 class LinkedList {
-private:
-    Node *head;
-    int size;
 public:
-    class Range {
-    };
-
-    class Empty {
-    };
-
     LinkedList() {
         head = nullptr;
     }
@@ -43,9 +34,7 @@ public:
     }
 
     void add(int index, T e) {
-        if (index < 0 || index > size) {
-            throw Range();
-        }
+        assert(index >= 0 && index <= size);
         if (index == 0) {
             addFirst(e);
         } else {
@@ -59,7 +48,7 @@ public:
     }
 
     void addFirst(T e) {
-        head = new Node(e, head);
+        head = new Node<T>(e, head);
         size++;
     }
 
@@ -67,4 +56,7 @@ public:
         add(size, e);
     }
 
+private:
+    Node<T> *head;
+    int size;
 };

@@ -2,36 +2,29 @@
 // Created by hpf on 18-5-7.
 //
 
-#ifndef DATASTRUCTURE_WITH_C_LINKLISTQUEUE_H
-#define DATASTRUCTURE_WITH_C_LINKLISTQUEUE_H
+#ifndef LINKLISTQUEUE_H
+#define LINKLISTQUEUE_H
 
 #include "Queue.h"
+#include <cassert>
+#include <iostream>
 
-template<class T>
+template<typename T>
 class QNode {
 public:
     T e;
-    QNode *next;
+    QNode<T> *next;
 
-    QNode(T e, QNode *next) : e(e), next(next) {
+    QNode(T e, QNode<T> *next) : e(e), next(next) {}
 
-    }
+    QNode(T e) : e(e), next(nullptr) {}
 
-    QNode(T e) : e(e), next(nullptr) {
-
-    }
-
-    QNode() : next(nullptr) {
-
-    }
+    QNode() : next(nullptr) {}
 };
 
-template<class T>
+template<typename T>
 class LinkedListQueue : public Queue<T> {
 public:
-    class Empty {
-    };
-
     LinkedListQueue() {
         head = nullptr;
         tail = nullptr;
@@ -58,9 +51,7 @@ public:
     }
 
     T dequeue() {
-        if (isEmpty()) {
-            throw Empty();
-        }
+        assert(!isEmpty());
         QNode<T> *retNode = head;
         head = head->next;
         retNode->next = nullptr;
@@ -72,9 +63,7 @@ public:
     }
 
     T getFront() {
-        if (isEmpty()) {
-            throw Empty();
-        }
+        assert(!isEmpty());
         return head->e;
     }
 
@@ -99,4 +88,4 @@ private:
     int size;
 };
 
-#endif //DATASTRUCTURE_WITH_C_LINKLISTQUEUE_H
+#endif //LINKLISTQUEUE_H
