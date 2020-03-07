@@ -3,41 +3,27 @@
 //
 
 #include <iostream>
+#include <cassert>
 
-#ifndef DATASTRUCTURE_LINKEDLIST_H
-#define DATASTRUCTURE_LINKEDLIST_H
-
-template<class T>
-class Node {
+template<typename T>
+class LinkNode {
 public:
     T e;
-    Node *next;
+    LinkNode<T> *next;
 
-    Node(T e, Node *next) : e(e), next(next) {
-    }
+    LinkNode(T e, LinkNode<T> *next) : e(e), next(next) {}
 
-    Node(T e) : e(e), next(nullptr) {
-    }
-
-    Node() : next(nullptr) {
-    }
+    LinkNode(T e) : e(e), next(nullptr) {}
+    
+    LinkNode() : next(nullptr) {}
 };
 
-template<class T>
+template<typename T>
 class LinkedList {
-private:
-    Node<T> *head;
-    int size;
 public:
-    class Range {
-    };
-
-    class Empty {
-    };
-
     LinkedList() {
-        head = new Node<T>();
-        size = 0;
+        head = new LinkNode<T>();
+	    size = 0;
     }
 
     int getSize() {
@@ -49,14 +35,12 @@ public:
     }
 
     void add(int index, T e) {
-        if (index < 0 || index > size) {
-            throw Range();
-        }
-        Node<T> *prev = head;
+        assert(index >= 0 && index <= size);
+        LinkNode<T> *prev = head;
         for (int i = 0; i < index; ++i) {
             prev = prev->next;
         }
-        prev->next = new Node<T>(e, prev->next);
+        prev->next = new LinkNode<T>(e, prev->next);
         size++;
     }
 
@@ -69,13 +53,8 @@ public:
     }
 
     T get(int index) {
-        if (size == 0) {
-            throw Empty();
-        }
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
-        Node<T> *cur = head->next;
+        assert(index >= 0 && index < size);
+        LinkNode<T> *cur = head->next;
         for (int i = 0; i < index; ++i) {
             cur = cur->next;
         }
@@ -91,13 +70,8 @@ public:
     }
 
     void set(int index, T e) {
-        if (size == 0) {
-            throw Empty();
-        }
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
-        Node<T> *cur = head->next;
+        assert(index >= 0 && index < size);
+        LinkNode<T> *cur = head->next;
         for (int i = 0; i < index; ++i) {
             cur = cur->next;
         }
@@ -113,17 +87,12 @@ public:
     }
 
     T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
-        if (size == 0) {
-            throw Empty();
-        }
-        Node<T> *prev = head;
+        assert(index >= 0 && index < size);
+        LinkNode<T> *prev = head;
         for (int i = 0; i < index; ++i) {
             prev = prev->next;
         }
-        Node<T> *retNode = prev->next;
+        LinkNode<T> *retNode = prev->next;
         prev->next = retNode->next;
         retNode->next = nullptr;
         size--;
@@ -139,7 +108,7 @@ public:
     }
 
     void removeElement(T e) {
-        Node<T> *prev = head;
+        LinkNode<T> *prev = head;
         while (prev->next != nullptr) {
             if (prev->next->e == e) {
                 break;
@@ -148,7 +117,7 @@ public:
         }
 
         if (prev->next != nullptr) {
-            Node<T> *delNode = prev->next;
+            LinkNode<T> *delNode = prev->next;
             prev->next = delNode->next;
             delNode->next = nullptr;
             size--;
@@ -156,7 +125,7 @@ public:
     }
 
     bool contains(T e) {
-        Node<T> *cur = head;
+        LinkNode<T> *cur = head;
         for (int i = 0; i < size; ++i) {
             cur = cur->next;
             if (cur->e == e) {
@@ -167,7 +136,7 @@ public:
     }
 
     void print() {
-        Node<T> *prev = head;
+        LinkNode<T> *prev = head;
         std::cout << "LinkedList: size = " << size << std::endl;
         std::cout << "[";
         for (int i = 0; i < size; ++i) {
@@ -180,17 +149,7 @@ public:
         std::cout << "]" << std::endl;
     }
 
-    void toPrint(){
-        Node<T> *prev = head;
-        std::cout << "[";
-        for (int i = 0; i < size; ++i) {
-            prev = prev->next;
-            std::cout << prev->e;
-            if (i < size - 1) {
-                std::cout << ", ";
-            }
-        }
-        std::cout << "]";
-    }
+private:
+    LinkNode<T> *head;
+    int size;
 };
-#endif //DATASTRUCTURE_LINKEDLIST_H

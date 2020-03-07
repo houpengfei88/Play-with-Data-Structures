@@ -1,20 +1,24 @@
 //
 // Created by hpf on 18-5-14.
 //
+#ifndef MAP_H
+#define MAP_H
 
 template<typename Key, typename Value>
 class Map {
-    void add(Key key, Value value);
+    virtual void add(Key key, Value value) = 0;
 
-    Value remove(Key key);
+    virtual Value remove(Key key) = 0;
 
-    bool contains(Key key);
+    virtual bool contains(Key key) = 0;
 
-    Value get(Key key);
+    virtual Value get(Key key) = 0;
 
-    void set(Key key, Value value);
+    virtual void set(Key key, Value value) = 0;
 
-    int getSize();
+    virtual int getSize() = 0;
 
-    bool isEmpty();
+    virtual bool isEmpty() = 0;
 };
+
+#endif //MAP_H

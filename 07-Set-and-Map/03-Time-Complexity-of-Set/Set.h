@@ -2,16 +2,20 @@
 // Created by hpf on 18-5-13.
 //
 
-#ifndef SET_SET_H
-#define SET_SET_H
+#ifndef SET_H
+#define SET_H
 
-template<class T>
+template<typename T>
 class Set {
-    void add(T e);
-    void remove(T e);
-    bool contains(T e);
-    int getSize();
-    bool isEmpty();
+    virtual void add(T e) = 0;
+
+    virtual void remove(T e) = 0;
+
+    virtual bool contains(T e) = 0;
+
+    virtual int getSize() = 0;
+    
+    virtual bool isEmpty() = 0;
 };
 
-#endif //SET_SET_H
+#endif //SET_H

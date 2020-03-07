@@ -11,14 +11,14 @@ int main() {
         std::cout << "Total words: " << words.size() << std::endl;
         for (string word : words) {
             if (linkedListMap->contains(word)) {
-                linkedListMap->set(word, *(linkedListMap->get(word)) + 1);
+                linkedListMap->set(word, linkedListMap->get(word) + 1);
             } else {
                 linkedListMap->add(word, 1);
             }
         }
         std::cout << "Total different words: " << linkedListMap->getSize() << std::endl;
-        std::cout << "Frequency of PRIDE: " << *(linkedListMap->get("pride")) << std::endl;
-        std::cout << "Frequency of PREJUDICE: " << *(linkedListMap->get("prejudice")) << std::endl;
+        std::cout << "Frequency of PRIDE: " << linkedListMap->get("pride") << std::endl;
+        std::cout << "Frequency of PREJUDICE: " << linkedListMap->get("prejudice") << std::endl;
     }
     return 0;
 }

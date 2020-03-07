@@ -12,16 +12,21 @@ int main() {
             bstSet->add(word);
         }
         std::cout << "Total different words: " << bstSet->getSize() << std::endl;
+        bstSet = nullptr;
+        delete bstSet;
     }
+
     std::cout << "a-tale-of-two-cities.txt" << std::endl;
     vector<string> words1;
     if (FileOps::readFile(".././pride-and-prejudice.txt", words1)) {
         std::cout << "Total words: " << words1.size() << std::endl;
-        BSTSet<string> *bstSet1 = new BSTSet<string>();
+        BSTSet<string> *bstSet = new BSTSet<string>();
         for(string word : words1) {
-            bstSet1->add(word);
+            bstSet->add(word);
         }
-        std::cout << "Total different words: " << bstSet1->getSize() << std::endl;
+        std::cout << "Total different words: " << bstSet->getSize() << std::endl;
+        bstSet = nullptr;
+        delete bstSet;
     }
     return 0;
 }

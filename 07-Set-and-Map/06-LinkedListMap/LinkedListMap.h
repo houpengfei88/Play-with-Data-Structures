@@ -4,44 +4,28 @@
 
 #include <iostream>
 #include "Map.h"
+#include <cassert>
 
-#ifndef SET_LINKEDLISTMAP_H
-#define SET_LINKEDLISTMAP_H
+#ifndef LINKEDLISTMAP_H
+#define LINKEDLISTMAP_H
 
 template<typename Key, typename Value>
-class Node {
+class MapNode {
 public:
     Key key;
     Value value;
-    Node<Key, Value> *next;
+    MapNode<Key, Value> *next;
 
-    Node(Key key, Value value, Node<Key, Value> *next) : key(key), value(value), next(next) {
-    }
+    MapNode(Key key, Value value, MapNode<Key, Value> *next) : key(key), value(value), next(next) {}
 
-    Node() : key(), value(), next(nullptr) {
-    }
+    MapNode() : key(), value(), next(nullptr) {}
 };
 
 template<typename Key, typename Value>
 class LinkedListMap : Map<Key, Value> {
-private:
-    Node<Key, Value> *dummyHead;
-    int size;
-
-    Node<Key, Value> *getNode(Key key) {
-        Node<Key, Value> *cur = dummyHead->next;
-        while (cur != nullptr) {
-            if (cur->key == key) {
-                return cur;
-            }
-            cur = cur->next;
-        }
-        return nullptr;
-    };
-
 public:
     LinkedListMap() {
-        dummyHead = new Node<Key, Value>();
+        dummyHead = new MapNode<Key, Value>();
         size = 0;
     }
 
@@ -57,15 +41,16 @@ public:
         return getNode(key) != nullptr;
     }
 
-    Value *get(Key key) {
-        Node<Key, Value> *node = getNode(key);
-        return node == nullptr ? nullptr : &(node->value);
+    Value get(Key key) {
+        assert(contains(key));
+        MapNode<Key, Value> *node = getNode(key);
+        return node->value;
     }
 
     void add(Key key, Value value) {
-        Node<Key, Value> *node = getNode(key);
+        MapNode<Key, Value> *node = getNode(key);
         if (node == nullptr) {
-            dummyHead->next = new Node<Key, Value>(key, value, dummyHead->next);
+            dummyHead->next = new MapNode<Key, Value>(key, value, dummyHead->next);
             size++;
         } else {
             node->value = value;
@@ -73,32 +58,49 @@ public:
     }
 
     void set(Key key, Value newValue) {
-        Node<Key, Value> *node = getNode(key);
+        MapNode<Key, Value> *node = getNode(key);
         if (node == nullptr) {
-
-        }
-        node->value = newValue;
+            add(key, newValue);
+        }else {
+            node->value = newValue;
+        } 
     }
 
-    Value *remove(Key key) {
-        Node<Key, Value> *prev = dummyHead;
+    Value remove(Key key) {
+        assert(contains(key));
+        MapNode<Key, Value> *prev = dummyHead;
         while (prev->next != nullptr) {
             if (prev->next->key == key) {
                 break;
             }
             prev = prev->next;
         }
-
         if (prev->next != nullptr) {
-            Node<Key, Value> *delNode = prev->next;
+            MapNode<Key, Value> *delNode = prev->next;
             prev->next = delNode->next;
             delNode->next = nullptr;
             size--;
-            return &(delNode->value);
+            return delNode->value;
+        } else {
+            return prev->value;
+        }
+    }
+
+private:
+    MapNode<Key, Value> *dummyHead;
+    int size;
+
+    MapNode<Key, Value> *getNode(Key key) {
+        MapNode<Key, Value> *cur = dummyHead->next;
+        while (cur != nullptr) {
+            if (cur->key == key) {
+                return cur;
+            }
+            cur = cur->next;
         }
         return nullptr;
-    }
+    };
+
 };
 
-
-#endif //SET_LINKEDLISTMAP_H
+#endif //LINKEDLISTMAP_H

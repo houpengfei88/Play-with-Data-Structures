@@ -2,16 +2,14 @@
 // Created by hpf on 18-5-13.
 //
 
-#ifndef SET_LINKEDLISTSET_H
-#define SET_LINKEDLISTSET_H
+#ifndef LINKEDLISTSET_H
+#define LINKEDLISTSET_H
 
 #include "Set.h"
 #include "LinkedList.h"
 
-template<class T>
+template<typename T>
 class LinkedListSet : public Set<T>{
-private:
-    LinkedList<T> *list;
 public:
     LinkedListSet(){
         list = new LinkedList<T>();
@@ -39,6 +37,8 @@ public:
         list->removeElement(e);
     }
 
+private:
+    LinkedList<T> *list;
 };
 
-#endif //SET_LINKEDLISTSET_H
+#endif //LINKEDLISTSET_H

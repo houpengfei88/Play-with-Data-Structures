@@ -3,38 +3,27 @@
 //
 
 #include <iostream>
+#include <cassert>
 
-template<class T>
+template<typename T>
 class Node {
 public:
     T e;
-    Node *next;
+    Node<T> *next;
 
-    Node(T e, Node *next) : e(e), next(next) {
-    }
+    Node(T e, Node<T> *next) : e(e), next(next) {}
 
-    Node(T e) : e(e), next(nullptr) {
-    }
-
-    Node() : next(nullptr) {
-    }
+    Node(T e) : e(e), next(nullptr) {}
+    
+    Node() : next(nullptr) {}
 };
 
-template<class T>
+template<typename T>
 class LinkedList {
-private:
-    Node<T> *head;
-    int size;
 public:
-    class Range {
-    };
-
-    class Empty {
-    };
-
     LinkedList() {
         head = new Node<T>();
-        size = 0;
+	    size = 0;
     }
 
     int getSize() {
@@ -46,9 +35,7 @@ public:
     }
 
     void add(int index, T e) {
-        if (index < 0 || index > size) {
-            throw Range();
-        }
+        assert(index >= 0 && index <= size);
         Node<T> *prev = head;
         for (int i = 0; i < index; ++i) {
             prev = prev->next;
@@ -66,12 +53,7 @@ public:
     }
 
     T get(int index) {
-        if (size == 0) {
-            throw Empty();
-        }
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         Node<T> *cur = head->next;
         for (int i = 0; i < index; ++i) {
             cur = cur->next;
@@ -88,12 +70,7 @@ public:
     }
 
     void set(int index, T e) {
-        if (size == 0) {
-            throw Empty();
-        }
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
+        assert(index >= 0 && index < size);
         Node<T> *cur = head->next;
         for (int i = 0; i < index; ++i) {
             cur = cur->next;
@@ -110,12 +87,7 @@ public:
     }
 
     T remove(int index) {
-        if (index < 0 || index >= size) {
-            throw Range();
-        }
-        if (size == 0) {
-            throw Empty();
-        }
+        assert(index >= 0 && index < size);
         Node<T> *prev = head;
         for (int i = 0; i < index; ++i) {
             prev = prev->next;
@@ -177,16 +149,7 @@ public:
         std::cout << "]" << std::endl;
     }
 
-    void toPrint(){
-        Node<T> *prev = head;
-        std::cout << "[";
-        for (int i = 0; i < size; ++i) {
-            prev = prev->next;
-            std::cout << prev->e;
-            if (i < size - 1) {
-                std::cout << ", ";
-            }
-        }
-        std::cout << "]";
-    }
+private:
+    Node<T> *head;
+    int size;
 };

@@ -2,16 +2,14 @@
 // Created by hpf on 18-5-13.
 //
 
-#ifndef SET_BSTSET_H
-#define SET_BSTSET_H
+#ifndef BSTSET_H
+#define BSTSET_H
 
 #include "Set.h"
 #include "BST.h"
 
-template<class T>
+template<typename T>
 class BSTSet : public Set<T> {
-private:
-    BST<T> *bst;
 public:
     BSTSet(){
         bst = new BST<T>();
@@ -36,6 +34,9 @@ public:
     void add(T e){
         bst->add(e);
     }
+    
+private:
+    BST<T> *bst;
 };
 
-#endif //SET_BSTSET_H
+#endif //BSTSET_H
