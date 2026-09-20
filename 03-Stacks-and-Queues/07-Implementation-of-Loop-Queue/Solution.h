@@ -139,12 +139,11 @@ private:
             for (int i = 0; i < getSize(); ++i) {
                 newData[i] = data[(i + front) % capacity];
             }
+            delete[] data;
             data = newData;
             tail = getSize();
             front = 0;
             capacity = newCapacity;
-            newData = nullptr;
-            delete[] newData;
         }
     };
 };

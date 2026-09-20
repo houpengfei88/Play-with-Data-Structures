@@ -150,10 +150,9 @@ private:
         for (int i = 0; i < size; ++i) {
             newData[i] = data[i];
         }
+        delete[] data;
         data = newData;
         capacity = newCapacity;
-        newData = nullptr;
-        delete []newData;
     }
 };
 
